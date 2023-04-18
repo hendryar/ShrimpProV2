@@ -14,11 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //seed the users table with default parameters and role 'admin'
+        \App\Models\User::factory()->create([
+            'name' => 'admin1',
+            'email' => 'admin@gmail.com',
+            'role' => 'admin',
+            'password' => bcrypt('qweqweqwe'),
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'qwetut mahendra',
+            'email' => 'qwe@gmail.com',
+            'password' => bcrypt('qweqweqwe'),
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

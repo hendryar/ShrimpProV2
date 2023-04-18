@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -30,3 +30,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth', 'role:admin')->name('admin.dashboard');
